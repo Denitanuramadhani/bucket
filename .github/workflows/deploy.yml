@@ -1,0 +1,41 @@
+name: CI/CD Ololeo Bucket Website
+
+on:
+  push:
+    branches: [ main ]
+#make me a workflow to deploy to docker hub and then SSH with appleboy to run a script to pull and run the container
+#
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build the application
+        run: npm run build
+      - name: Deploy to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          username: nitaaa21
+          password: dnT4b1j4R*D0k3r
+          repository: nitaaa21/ololeo-bucket
+          tag: frontend
+          context: .
+          push: true
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: 43.134.117.194
+          username: ubuntu
+          password: lh9bUplI(tr^-+X&
+          port: 22
+          script: |
+            cd ~/app/ololeo-bucket
+            bash redeploy-landing-page.sh
+    
