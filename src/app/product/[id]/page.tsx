@@ -10,11 +10,15 @@ import { ShoppingBag, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import CheckoutDrawer from "@/components/CheckoutDrawer";
+
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const unwrappedParams = use(params);
   const product = products.find((p) => p.id === unwrappedParams.id);
   const { addItem } = useCart();
   const [isAdded, setIsAdded] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   if (!product) {
     notFound();
@@ -27,19 +31,25 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   };
 
   const handleCheckoutNow = () => {
-    addItem(product);
-    
-    let message = "Halo kak, saya mau pesan:\n\n";
-    message += `- ${product.name} x 1\n`;
-    message += `  Rp ${product.price.toLocaleString("id-ID")}\n`;
-    message += `\nTotal: Rp ${product.price.toLocaleString("id-ID")}\n\nApakah masih tersedia?`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/6288809482113?text=${encodedMessage}`, "_blank");
+    setQuantity(1); // Reset to 1 when opening
+    setIsCheckoutOpen(true);
+  };
+
+  const handleUpdateQuantity = (_id: string, q: number) => {
+    setQuantity(Math.max(1, q));
   };
 
   return (
     <main className="min-h-screen pt-32 pb-24 bg-white relative overflow-hidden">
+      {/* Checkout Drawer for Direct Buy */}
+      <CheckoutDrawer 
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        items={[{ ...product, quantity }]}
+        title="Checkout Pesanan"
+        onUpdateQuantity={handleUpdateQuantity}
+      />
+
       {/* Decorative gradient blob */}
       <div className="absolute top-20 right-0 w-[40%] h-[40%] rounded-full bg-secondary/10 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[40%] h-[40%] rounded-full bg-primary/10 blur-[100px] pointer-events-none" />
@@ -95,22 +105,22 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
               <p className="leading-relaxed">{product.description}</p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-row gap-3 md:gap-4 mt-8">
               <button 
                 onClick={handleAddToCart}
-                className={`flex-1 py-5 rounded-full font-bold text-lg flex items-center justify-center gap-3 transition-all duration-300 border-2 ${
+                className={`flex-1 py-4 md:py-5 rounded-full font-bold text-sm md:text-lg flex items-center justify-center gap-2 md:gap-3 transition-all duration-300 border-2 ${
                   isAdded 
                     ? "bg-green-50 text-green-600 border-green-200" 
                     : "bg-white text-gray-800 border-gray-200 hover:border-primary/50 hover:bg-primary/5"
                 }`}
               >
-                <ShoppingBag className="w-5 h-5" />
-                {isAdded ? "Added to Cart!" : "Add to Cart"}
+                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
+                {isAdded ? "Added!" : "Add to Cart"}
               </button>
               
               <button 
                 onClick={handleCheckoutNow}
-                className="flex-[1.5] py-5 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold text-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:scale-[1.02]"
+                className="flex-[1.2] py-4 md:py-5 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm md:text-lg hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:scale-[1.02]"
               >
                 Buy Now
               </button>
@@ -121,3 +131,4 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     </main>
   );
 }
+

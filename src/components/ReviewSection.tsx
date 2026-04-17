@@ -6,19 +6,19 @@ import { Star } from "lucide-react";
 const reviews = [
   {
     id: 1,
-    name: "Amanda Sari",
+    name: "A*** K***",
     rating: 5,
-    comment: "Bunganya cantik banget, warnanya persis seperti di foto. Pacar saya suka banget! The best Ololeo Bucket ❤️",
+    comment: "Bunganya cantik banget. Pacar saya suka banget! The best Ololeo Bucket ❤️",
   },
   {
     id: 2,
-    name: "Budi Santoso",
+    name: "S****",
     rating: 5,
-    comment: "Pesan untuk wisuda adik, bisa custom sesuai kemauan. Recommended!",
+    comment: "Pesan untuk wisuda teman, bisa custom sesuai kemauan. Recommended!",
   },
   {
     id: 3,
-    name: "Citra Kirana",
+    name: "C**** R****",
     rating: 5,
     comment: "Suka banget sama perpaduan warnanya, soft dan aesthetic. Harganya juga terjangkau untuk kualitas sepremium ini.",
   }

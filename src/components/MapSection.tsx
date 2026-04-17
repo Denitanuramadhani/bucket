@@ -14,7 +14,7 @@ export default function MapSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
-            Visit Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Store</span>
+            Find <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">Us</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             Come and see our beautiful flower arrangements in person. We'd love to help you find the perfect bucket.

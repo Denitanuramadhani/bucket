@@ -60,7 +60,7 @@ export default function AboutSection() {
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Pesan</label>
                   <textarea 
-                    placeholder="Misal: Halo kak, saya mau tanya bucket ukuran besar untuk besok..."
+                    placeholder="Misal: Halo kak, saya mau tanya bucket ukuran besar untuk wisuda..."
                     required
                     rows={4}
                     value={formData.message}

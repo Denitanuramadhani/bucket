@@ -4,7 +4,7 @@ export const products: Product[] = [
   {
     id: "1",
     name: "Yellow Bucket",
-    price: 150000,
+    price: 70000,
     image: "/yellow.webp",
     category: "Birthday",
     description: "A bright and cheerful Yellow bouquet to light up any room.",
@@ -12,7 +12,7 @@ export const products: Product[] = [
   {
     id: "2",
     name: "Royal Blue Dream",
-    price: 280000,
+    price: 40000,
     image: "/blue.webp",
     category: "Birthday",
     description: "Elegant blue-themed bouquet with a touch of sophistication.",
@@ -20,7 +20,7 @@ export const products: Product[] = [
   {
     id: "3",
     name: "Marshmallow Sweetness",
-    price: 120000,
+    price: 50000,
     image: "/mashmallow.webp",
     category: "Birthday",
     description: "A unique and sweet treat arranged beautifully as a bouquet.",
@@ -28,7 +28,7 @@ export const products: Product[] = [
   {
     id: "4",
     name: "Classic Red Rose",
-    price: 350000,
+    price: 45000,
     image: "/redbucket.webp",
     category: "Romantic",
     description: "The timeless symbol of love, arranged in a premium red bucket.",
@@ -358,6 +358,22 @@ export const products: Product[] = [
     name: "Pink v2 Bouquet",
     price: 200000,
     image: "/pinky.webp",
+    category: "Birthday",
+    description: "Pink V2 Bouquet Flowers.",
+  },
+  {
+    id: "48",
+    name: "Tulip Satu Tangkai",
+    price: 6000,
+    image: "/tulippp.webp",
+    category: "Custom",
+    description: "Tulip satu tangkai bebas pilih warna.",
+  },
+  {
+    id: "49",
+    name: "Single Tulip Bucket",
+    price: 8000,
+    image: "/tulip.webp",
     category: "Birthday",
     description: "Pink V2 Bouquet Flowers.",
   },

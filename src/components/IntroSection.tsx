@@ -44,7 +44,7 @@ export default function IntroSection() {
                 Ololeo Bucket hadir berawal dari sebuah passion sederhana: melihat senyum tulus mengembang saat seseorang menerima buket bunga. Kami percaya bahwa bunga bukan sekadar pajangan, melainkan perantara pesan yang tak mampu diungkapkan.
               </p>
               <p>
-                Setiap bunga yang kami rangkai diproses dengan penuh hati, menggunakan bunga tersegar yang dirangkai secara teliti oleh tangan-tangan terampil. Dari hari ulang tahun, momen wisuda, perayaan <i>anniversary</i>, hingga kejutan tak terduga — kami di sini untuk mengabadikannya.
+                Setiap bunga yang kami rangkai diproses dengan penuh hati, menggunakan bunga cantik yang dirangkai secara teliti. Dari hari ulang tahun, momen wisuda, perayaan <i>anniversary</i>, hingga kejutan tak terduga — kami di sini untuk mengabadikannya.
               </p>
             </div>
             <motion.div 
